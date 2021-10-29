@@ -1,4 +1,4 @@
-# Samantha
+# Samantha Costa
 boneco = ['''
   +---+
   |   |
