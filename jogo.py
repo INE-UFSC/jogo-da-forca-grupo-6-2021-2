@@ -21,3 +21,4 @@ def acerto(letra, resposta): #Felipe Backes Kettl
             acertou = True
     return acertou, index
 
+
