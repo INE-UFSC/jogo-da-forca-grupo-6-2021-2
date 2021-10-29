@@ -10,6 +10,7 @@ def exibe_boneco(vidas_restantes: int):  # Samantha Costa
 
 
 def escolha_resposta():  # Felipe Backes Kettl
+    '''Escolhe uma palavra aleatória de lista_palavras'''
     index = randint(0, len(lista_palavras)-1)
     resposta = lista_palavras[index]
     return resposta
@@ -29,7 +30,7 @@ def atualiza_palavra(palavra: str, letra: str, indices: list):  # Victor Gouvêa
     return palavra
 
 
-def acerto(letra, resposta):  # Felipe Backes Kettl
+def acerto(letra: str, resposta: str):  # Felipe Backes Kettl
     '''Função para verificar o acerto, ou não, da letra
      Recebe a letra que o jogador escolheu e a palavra-resposta que o jogo selecionou
      Retorna o bool se acertou ou não e uma lista com os index dos acertos'''
@@ -41,13 +42,25 @@ def acerto(letra, resposta):  # Felipe Backes Kettl
             acertou = True
     return acertou, index
 
-def add_palavra(nova_palavra): # Victor Gouvêa
-    lista_palavras.append(nova_palavra)
-    print("Palavra adicionada com sucesso!")
+
+def adiciona_palavra():  # Victor Gouvêa e Samantha Costa
+    ''' Pede uma nova palavra, verifica se a palavra digitada é a que deseja adicionar na lista e caso sim, adiciona a lista_palavras. Printa se foi adicionada ou não. '''
+    nova_palavra = str(
+        input('Digite uma nova palavra para adicionar: ')).upper().strip()
+    verificacao = input(
+        f'Palavra digitada: {nova_palavra}. Adicionar? [S/N] ').upper()[0]
+    while verificacao not in 'SN':
+        verificacao = input(f'Erro. Tente novamente, digitando S ou N: ')
+    if verificacao == 'S':
+        lista_palavras.append(nova_palavra)
+        print('Palavra adicionada com sucesso!')
+    else:
+        print('Palavra não adicionada. ')
+
 
 def main():  # Todos
     print('-'*40)
-    print('JOGO DA FORCA'.center(40))
+    print('NOVO JOGO'.center(40))
     print('-'*40)
     vidas_restantes = 6
     resposta = escolha_resposta().upper()
@@ -60,10 +73,10 @@ def main():  # Todos
 
         letra = input("Escolha uma letra: ").upper()
         if len(letra) > 1:
-            print("Você digitou mais de uma letra, tente novamente")
+            print("Você digitou mais de uma letra, tente novamente.")
             continue
         elif letra in letras_chutadas:
-            print("Você já acertou com essa letra, tente novamente")
+            print("Você já acertou com essa letra, tente novamente.")
             continue
 
         acertou, index = acerto(letra, resposta)
@@ -78,25 +91,36 @@ def main():  # Todos
             vidas_restantes -= 1
 
         if vidas_restantes == 0:
-            print("Você perdeu! Fim do jogo, a palavra era {}".format(resposta))
+            print("Você perdeu! Fim do jogo, a palavra era {}.".format(resposta))
             print(exibe_boneco(vidas_restantes))
             break
 
         elif "_" not in palavra:
             print("Você ganhou, parabéns!")
-            print("Você ainda tinha {} tentativas".format(vidas_restantes))
+            print("A palavra era {} e você ainda tinha {} tentativas.".format(
+                resposta, vidas_restantes))
             break
 
 
 while True:
-    main()
+    print('-'*40)
+    print('JOGO DA FORCA'.center(40))
+    print('-'*40)
+    print('''[ 1 ] Novo jogo
+[ 2 ] Adicionar nova palavra ao jogo
+[ 3 ] Sair do Programa''')
     while True:
-        escolha = input('Quer jogar novamente? [S/N] ')[0].upper().strip()
-        if escolha in 'SN':
-            break
+        opcao = input('Digite o número de escolha: ').strip()[0]
+        if opcao.isnumeric() != True or opcao not in '123':
+            print('Por favor, digite um número correto. ')
+            continue
         else:
-            print('Tente novamente, digitando S ou N. ', end=" ")
-    if escolha == 'S':
-        continue
+            opcao = int(opcao)
+            break
+    if opcao == 1:
+        main()
+    elif opcao == 2:
+        adiciona_palavra()
     else:
+        print('FIM!')
         break
