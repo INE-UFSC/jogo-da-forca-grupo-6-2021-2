@@ -50,5 +50,5 @@ boneco = ['''
       |
 =========''']
 
-lista_palavras = (
-    'python javascript caderno ufsc caneta universidade computador notebook ciencia arquitetura florianopolis').upper().split(' ')
+lista_palavras = [
+    'python', 'javascript', 'caderno', 'ufsc', 'caneta', 'universidade', 'computador', 'notebook', 'ciencia', 'arquitetura', 'florianopolis']
