@@ -1,4 +1,13 @@
-def atualiza_palavra(palavra: str, letra: str, indices: list): #Victor Gouvêa
+
+from forca import boneco, lista_palavras
+
+
+def exibe_boneco(vidas_restantes: bool):  # Samantha
+    'Recebe vidas_restantes(bool) e retorna o estado atual do boneco da forca(str)'
+    return (boneco[vidas_restantes])
+
+
+def atualiza_palavra(palavra: str, letra: str, indices: list):
     '''Função que atualiza a palavra que está sendo advinhada
      Substitui os traços pela letra escolhida, baseado no índice dessa letra na resposta
      Retorna a palavra atualizada já em string'''
