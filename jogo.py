@@ -41,6 +41,9 @@ def acerto(letra, resposta):  # Felipe Backes Kettl
             acertou = True
     return acertou, index
 
+def add_palavra(nova_palavra): # Victor Gouvêa
+    lista_palavras.append(nova_palavra)
+    print("Palavra adicionada com sucesso!")
 
 def main():  # Todos
     print('-'*40)
