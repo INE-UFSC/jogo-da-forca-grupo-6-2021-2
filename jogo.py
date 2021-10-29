@@ -7,7 +7,7 @@ def exibe_boneco(vidas_restantes: bool):  # Samantha
     return (boneco[vidas_restantes])
 
 
-def atualiza_palavra(palavra: str, letra: str, indices: list):
+def atualiza_palavra(palavra: str, letra: str, indices: list): # Victor Gouvêa
     '''Função que atualiza a palavra que está sendo advinhada
      Substitui os traços pela letra escolhida, baseado no índice dessa letra na resposta
      Retorna a palavra atualizada já em string'''
