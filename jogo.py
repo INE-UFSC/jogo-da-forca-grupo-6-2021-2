@@ -6,4 +6,3 @@ def exibe_boneco(vidas_restantes: bool):  # Samantha
     return (boneco[vidas_restantes])
 
 
-print(exibe_boneco(0))
