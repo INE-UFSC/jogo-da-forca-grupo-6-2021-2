@@ -1,4 +1,7 @@
-def atualiza_palavra(palavra: str, letra: str, indices: list):
+def atualiza_palavra(palavra: str, letra: str, indices: list): #Victor Gouvêa
+    '''Função que atualiza a palavra que está sendo advinhada
+     Substitui os traços pela letra escolhida, baseado no índice dessa letra na resposta
+     Retorna a palavra atualizada já em string'''
     letra = letra.upper()
     palavra = list(palavra.upper())
 
@@ -20,4 +23,3 @@ def acerto(letra, resposta): #Felipe Backes Kettl
             index.append(x)
             acertou = True
     return acertou, index
-
