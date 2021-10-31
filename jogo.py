@@ -70,15 +70,16 @@ def main():  # Todos
     while True:
         print(f'Palavra ({len(palavra)} letras): {palavra}')
         print(exibe_boneco(vidas_restantes))
-       
-        print(f'Letras ja escolhidas: {letras_chutadas}')
+
+        if letras_chutadas != []:
+            print(f'Letras já escolhidas: {letras_chutadas}')
         letra = input("Escolha uma letra: ").upper()
 
         if len(letra) > 1:
             print("Você digitou mais de uma letra, tente novamente.")
             continue
         elif letra in letras_chutadas:
-            print("Você já acertou com essa letra, tente novamente.")
+            print("Você já inseriu essa letra, tente novamente.")
             continue
         else:
             letras_chutadas.append(letra)
@@ -88,7 +89,6 @@ def main():  # Todos
         if acertou:
             print("Você acertou a letra!")
             palavra = atualiza_palavra(palavra, letra, index)
-            
 
         else:
             print("Você errou!")
@@ -100,9 +100,9 @@ def main():  # Todos
             break
 
         elif "_" not in palavra:
-            print("=============\n    +---+\n    |   |\n        |\n        |  \O/\n        |   |\n        |  / \ \n=============\n")
+            print(exibe_boneco(7))
             print("Você ganhou, parabéns!")
-            print("A palavra era {} e você ainda tinha {} tentativas.".format(
+            print("A palavra era {} e você ainda tinha {} tentativa(s).".format(
                 resposta, vidas_restantes))
             break
 
