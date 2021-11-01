@@ -74,6 +74,7 @@ def main():  # Todos
         if letras_chutadas != []:
             print(f'Letras já escolhidas: {letras_chutadas}')
         letra = input("Escolha uma letra: ").upper()
+        print()
 
         if len(letra) > 1:
             print("Você digitou mais de uma letra, tente novamente.")
@@ -95,8 +96,8 @@ def main():  # Todos
             vidas_restantes -= 1
 
         if vidas_restantes == 0:
-            print("Você perdeu! Fim do jogo, a palavra era {}.".format(resposta))
             print(exibe_boneco(vidas_restantes))
+            print("Você perdeu! Fim do jogo, a palavra era {}.".format(resposta))
             break
 
         elif "_" not in palavra:
